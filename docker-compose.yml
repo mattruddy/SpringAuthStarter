@@ -6,12 +6,12 @@ services:
     environment:
       - POSTGRES_DB=store
       - POSTGRES_USER=pwastore
-      - POSTGRES_PASSWORD=
+      - POSTGRES_PASSWORD=password
     ports:
       - 5432:5432
     volumes:
       - ./.postgres/data:/var/lib/postgresql/data
-  shorts:
+  store:
     build: .
     expose:
       - 8080

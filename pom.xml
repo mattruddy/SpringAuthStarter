@@ -8,8 +8,8 @@
 		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pwa</groupId>
-	<artifactId>store</artifactId>
+	<groupId>com.spring</groupId>
+	<artifactId>starter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>store</name>
 	<description>Demo project for Spring Boot</description>

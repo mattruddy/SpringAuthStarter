@@ -14,6 +14,9 @@ public class EndUser {
     private String email;
 
     @Column
+    private String username;
+
+    @Column
     private String passDigest;
 
     @OneToOne
@@ -49,5 +52,13 @@ public class EndUser {
 
     public void setPage(Page page) {
         this.page = page;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

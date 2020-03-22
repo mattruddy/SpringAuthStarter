@@ -19,7 +19,7 @@ public class PublicApi {
 
     // POST
     @PostMapping(value = "/signup")
-    public AuthTokenResponse signup(@RequestBody SignUpRequest signUpRequest) throws Exception {
+    public AuthTokenResponse signup(@RequestBody SignUpRequest signUpRequest) {
         return authService.signup(signUpRequest);
     }
 

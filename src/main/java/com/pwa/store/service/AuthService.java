@@ -1,5 +1,6 @@
 package com.pwa.store.service;
 
+import com.pwa.store.exception.ServiceException;
 import com.pwa.store.model.EndUser;
 import com.pwa.store.model.dto.AuthTokenResponse;
 import com.pwa.store.model.dto.SignUpRequest;
@@ -20,15 +21,15 @@ public class AuthService {
     @Autowired private JwtTokenProvider jwtTokenProvider;
     @Autowired private PasswordEncoder passwordEncoder;
 
-    public AuthTokenResponse signup(SignUpRequest signUpRequest) throws Exception {
+    public AuthTokenResponse signup(SignUpRequest signUpRequest) {
         String username = signUpRequest.getUsername().toLowerCase();
         String email = signUpRequest.getEmail().toLowerCase();
         if (endUserRepo.findByUsernameIgnoreCase(username) != null) {
-            throw new Exception("Invalid username");
+            throw new ServiceException("Invalid username");
         }
 
         if (endUserRepo.findByEmailIgnoreCase(email) != null) {
-            throw new Exception("Invalid email");
+            throw new ServiceException("Invalid email");
         }
 
         EndUser endUser = new EndUser();

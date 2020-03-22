@@ -1,5 +1,6 @@
 package com.pwa.store.security;
 
+import com.pwa.store.exception.ServiceException;
 import com.pwa.store.model.EndUser;
 import com.pwa.store.repository.EndUserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,10 @@ public class UserIdentity {
     private EndUserRepo endUserRepo;
 
     @Transactional(readOnly = true)
-    public void create(String username) throws Exception {
+    public void create(String username) {
         EndUser user = endUserRepo.findByUsernameIgnoreCase(username);
         if (user == null) {
-            throw new Exception("Error");
+            throw new ServiceException("Error");
         }
         this.endUser = user;
     }
